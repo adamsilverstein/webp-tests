@@ -10,17 +10,14 @@
 
 <script>
 
-
-// check_webp_feature:
-//		 'feature' can be one of 'lossy', 'lossless', 'alpha' or 'animation'.
-function check_webp_lossy_support(callback) {
+function checkWebpSupport( callback ) {
 		var kTestImages = {
 				lossy: "UklGRiIAAABXRUJQVlA4IBYAAAAwAQCdASoBAAEADsD+JaQAA3AAAAAA",
 		};
 		var img = new Image();
 		img.onload = function () {
-										var result = (img.width > 0) && (img.height > 0);
-										callback(result);
+			var result = (img.width > 0) && (img.height > 0);
+			callback(result);
 		};
 		img.onerror = function () {
 										callback(false);
@@ -28,7 +25,7 @@ function check_webp_lossy_support(callback) {
 		img.src = "data:image/webp;base64," + kTestImages['lossy'];
 		}
 
-	check_webp_lossy_support( function( support ) {
+	checkWebpSupport( function( support ) {
 		if ( ! support ) {
 			var js = document.createElement('script');
 			js.src = 'https://unpkg.com/webp-hero@0.0.2/dist-cjs/polyfills.js';

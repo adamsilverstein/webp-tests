@@ -9,11 +9,7 @@
 <img src="https://raw.githubusercontent.com/chase-moskal/webp-hero/master/images/firebreather.webp" />
 
 <script>
-
-
-	// check_webp_feature:
-	//   'feature' can be one of 'lossy', 'lossless', 'alpha' or 'animation'.
-	function check_webp_lossy_support(callback) {
+	function checkWebpSupport(callback) {
 		var kTestImages = {
 			lossy: "UklGRiIAAABXRUJQVlA4IBYAAAAwAQCdASoBAAEADsD+JaQAA3AAAAAA",
 
@@ -29,7 +25,7 @@
 		img.src = "data:image/webp;base64," + kTestImages['lossy'];
 	}
 
-	check_webp_lossy_support( function( support ) {
+	checkWebpSupport( function( support ) {
 		if ( ! support ) {
 			var js = document.createElement('script');
 			js.src = 'https://unpkg.com/webp-hero@0.0.2/dist-cjs/polyfills.js';
