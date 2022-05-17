@@ -37,8 +37,10 @@
 			var js2 = document.createElement('script');
 			js2.src = 'https://unpkg.com/webp-hero@0.0.2/dist-cjs/webp-hero.bundle.js';
 			document.body.appendChild( js2 );
-			var webpMachine = new webpHero.WebpMachine();
-			webpMachine.polyfillDocument();
+			js2.addEventListener( 'load', function() {
+				var webpMachine = new webpHero.WebpMachine();
+				webpMachine.polyfillDocument();
+			} );
 		}
 	} );
 
