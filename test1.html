@@ -10,20 +10,20 @@
 
 <script>
 
-function checkWebpSupport( callback ) {
+	function checkWebpSupport( callback ) {
 		var kTestImages = {
 				lossy: "UklGRiIAAABXRUJQVlA4IBYAAAAwAQCdASoBAAEADsD+JaQAA3AAAAAA",
 		};
 		var img = new Image();
 		img.onload = function () {
-			var result = (img.width > 0) && (img.height > 0);
-			callback(result);
+			var result = ( img.width > 0 ) && ( img.height > 0 );
+			callback( result );
 		};
 		img.onerror = function () {
-										callback(false);
+			callback( false) ;
 		};
 		img.src = "data:image/webp;base64," + kTestImages['lossy'];
-		}
+	}
 
 	checkWebpSupport( function( support ) {
 		if ( ! support ) {
